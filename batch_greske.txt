@@ -1,0 +1,15 @@
+nepostojeca_komanda
+touch
+truncate
+rm
+batch
+wc
+tr
+head
+echo "a" | wc -c "argument"
+echo "x" |  | wc -c
+touch batch_tmp_fajl.txt
+touch batch_tmp_fajl.txt
+truncate nepostojeci_fajl_truncate.txt
+rm nepostojeci_fajl_rm.txt
+batch nepostojeci_fajl_batch.txt

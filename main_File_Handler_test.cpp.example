@@ -1,0 +1,30 @@
+// Ispravan test za File_Handler: sadržaj fajla + "DODAJ OVO"
+// Kopiraj u main.cpp ako želiš da testiraš File_Handler.
+
+#include <iostream>
+#include "core/File_Handler.h"
+using namespace std;
+
+int main() {
+    File_Handler fh;
+
+    // 1. Učitaj trenutni sadržaj fajla
+    auto res = fh.ReadFile("proba.txt");
+    cout << "--- Pre ---" << endl;
+    for (const auto& line : res)
+        cout << line << endl;
+
+    // 2. DODAJ novu liniju u vektor (stari sadržaj + "DODAJ OVO")
+    res.push_back("DODAJ OVO");
+    fh.setContentToWrite(res);
+
+    // 3. Clean = prepiši CELE fajl sa tim sadržajem (ne Add!)
+    //    Add bi dopisivao na kraj; mi hoćemo da fajl BUDE: stari + "DODAJ OVO"
+    fh.WriteFile("proba.txt", wr_mode::Clean);
+
+    res = fh.ReadFile("proba.txt");
+    cout << "--- Posle ---" << endl;
+    for (const auto& line : res)
+        cout << line << endl;
+    return 0;
+}
